@@ -1,0 +1,12 @@
+#!/bin/bash -l
+
+#$ -cwd
+#$ -P bf528
+#$ -j y
+#$ -pe mpi_16_tasks_per_node 16
+#$ -l h_rt=48:00:00
+
+source /etc/bashrc
+module load cufflinks
+
+cufflinks --compatible-hits-norm -G /project/bf528/project_2/reference/annot/mm9.gtf -b /project/bf528/project_2/reference/mm9.fa -u -o P0_1_cufflinks -p 16 P0_1_tophat/accepted_hits.bam

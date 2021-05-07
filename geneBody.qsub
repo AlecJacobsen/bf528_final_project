@@ -1,0 +1,13 @@
+#!/bin/bash -l
+
+#$ -cwd
+#$ -P bf528
+#$ -j y
+#$ -pe mpi_16_tasks_per_node 16
+#$ -l h_rt=48:00:00
+
+module load python3
+module load rseqc/3.0.0
+module load R
+
+geneBody_coverage.py -r /project/bf528/project_2/reference/annot/mm9.bed -i P0_1_tophat/accepted_hits.bam  -o geneBody_output 
